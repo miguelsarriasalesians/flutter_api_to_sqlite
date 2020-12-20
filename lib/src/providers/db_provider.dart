@@ -24,7 +24,7 @@ class DBProvider {
   // Create the database and the Programmer table
   initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    final path = join(documentsDirectory.path, 'programmer.db');
+    final path = join(documentsDirectory.path, 'programmers2.db');
 
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
@@ -33,7 +33,7 @@ class DBProvider {
           'email TEXT,'
           'firstName TEXT,'
           'lastName TEXT,'
-          'technologies TEXT'
+          'technologies TEXT,'
           'yearsExperience INTEGER'
           ')');
     });
