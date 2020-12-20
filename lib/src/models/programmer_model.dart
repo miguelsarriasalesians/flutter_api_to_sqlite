@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-List<Programmer> employeeFromJson(String str) =>
+List<Programmer> programmerFromJson(String str) =>
     List<Programmer>.from(json.decode(str).map((x) => Programmer.fromJson(x)));
 
-String employeeToJson(List<Programmer> data) =>
+String programmerToJson(List<Programmer> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Programmer {
