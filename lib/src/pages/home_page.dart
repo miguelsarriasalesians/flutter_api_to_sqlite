@@ -19,22 +19,29 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo,
         title: Text('Api to sqlite'),
         centerTitle: true,
+        leading: Container(
+          padding: EdgeInsets.only(left: 10.0),
+          child: IconButton(
+            icon: Icon(
+              Icons.download_sharp,
+              size: 30,
+            ),
+            onPressed: () async {
+              await _loadFromApi();
+            },
+          ),
+        ),
         actions: <Widget>[
           Container(
             padding: EdgeInsets.only(right: 10.0),
             child: IconButton(
-              icon: Icon(Icons.settings_input_antenna),
-              onPressed: () async {
-                await _loadFromApi();
-              },
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(right: 10.0),
-            child: IconButton(
-              icon: Icon(Icons.delete),
+              icon: Icon(
+                Icons.delete,
+                size: 30,
+              ),
               onPressed: () async {
                 await _deleteData();
               },
@@ -171,15 +178,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 );
-                // return ListTile(
-                //   leading: Text(
-                //     "${index + 1}",
-                //     style: TextStyle(fontSize: 20.0),
-                //   ),
-                //   title: Text(
-                //       "Name: ${snapshot.data[index].firstName} ${snapshot.data[index].lastName} "),
-                //   subtitle: Text('EMAIL: ${snapshot.data[index].email}'),
-                // );
               },
             ),
           );
