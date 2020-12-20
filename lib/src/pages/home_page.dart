@@ -1,5 +1,5 @@
 import 'package:api_to_sqlite_flutter/src/providers/db_provider.dart';
-import 'package:api_to_sqlite_flutter/src/providers/employee_api_provider.dart';
+import 'package:api_to_sqlite_flutter/src/providers/programmer_api_provider.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,8 +52,8 @@ class _HomePageState extends State<HomePage> {
       isLoading = true;
     });
 
-    var apiProvider = EmployeeApiProvider();
-    await apiProvider.getAllEmployees();
+    var apiProvider = ProgrammerApiProvider();
+    await apiProvider.getAllProgrammers();
 
     // wait for 2 seconds to simulate loading of data
     await Future.delayed(const Duration(seconds: 2));
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
       isLoading = true;
     });
 
-    await DBProvider.db.deleteAllEmployees();
+    await DBProvider.db.deleteAllProgrammers();
 
     // wait for 1 second to simulate loading of data
     await Future.delayed(const Duration(seconds: 1));
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
 
   _buildEmployeeListView() {
     return FutureBuilder(
-      future: DBProvider.db.getAllEmployees(),
+      future: DBProvider.db.getAllProgrammers(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (!snapshot.hasData) {
           return Center(
