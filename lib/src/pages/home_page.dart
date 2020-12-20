@@ -3,7 +3,7 @@ import 'package:api_to_sqlite_flutter/src/providers/programmer_api_provider.dart
 import 'package:flutter/material.dart';
 
 const double spaceBetweenRows = 10;
-const double textSize = 17;
+const double textSize = 16;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
