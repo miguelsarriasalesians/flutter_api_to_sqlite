@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-List<Employee> employeeFromJson(String str) =>
-    List<Employee>.from(json.decode(str).map((x) => Employee.fromJson(x)));
+List<Programmer> employeeFromJson(String str) =>
+    List<Programmer>.from(json.decode(str).map((x) => Programmer.fromJson(x)));
 
-String employeeToJson(List<Employee> data) =>
+String employeeToJson(List<Programmer> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Employee {
+class Programmer {
   int id;
   String email;
   String firstName;
@@ -14,7 +14,7 @@ class Employee {
   String technologies;
   int yearsExperience;
 
-  Employee(
+  Programmer(
       {this.id,
       this.email,
       this.firstName,
@@ -22,7 +22,7 @@ class Employee {
       this.technologies,
       this.yearsExperience});
 
-  factory Employee.fromJson(Map<String, dynamic> json) => Employee(
+  factory Programmer.fromJson(Map<String, dynamic> json) => Programmer(
       id: json["id"],
       email: json["email"],
       firstName: json["firstName"],
