@@ -3,6 +3,7 @@ import 'package:api_to_sqlite_flutter/src/providers/programmer_api_provider.dart
 import 'package:flutter/material.dart';
 
 const double spaceBetweenRows = 10;
+const double textSize = 17;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -107,7 +108,20 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             color: Colors.black54,
                             fontWeight: FontWeight.bold,
-                            fontSize: 22)),
+                            fontSize: 30)),
+                    trailing: CircleAvatar(
+                      radius: 15,
+                      backgroundColor: snapshot.data[index].yearsExperience >= 5
+                          ? Colors.yellow[600]
+                          : Colors.blue[700],
+                      child: Icon(
+                        Icons.person,
+                        size: 20,
+                        color: snapshot.data[index].yearsExperience >= 5
+                            ? Colors.black54
+                            : Colors.white,
+                      ),
+                    ),
                     title: Column(
                       children: [
                         FormattedRow(
@@ -190,14 +204,16 @@ class FormattedRow extends StatelessWidget {
         Text(
           "$title: ",
           style: TextStyle(
-              color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 18),
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: textSize),
         ),
         Text(
           value,
           style: TextStyle(
               color: Colors.black54,
               fontWeight: FontWeight.normal,
-              fontSize: 18),
+              fontSize: textSize),
         ),
       ],
     );
